@@ -28,7 +28,14 @@ function StartScreen() {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
+    <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '100vh',
+        position: 'relative',
+      }}>
       <h2>안경만두와 집중해보세요</h2>
       <Character /> {/* 예시로 focusLevel을 80으로 설정 */}
 

@@ -32,17 +32,19 @@ const Home = () => {
     >
       {/* 다마고치 캐릭터 중앙 배치 */}
       <Character />
-
       {/* 타이머 버튼 우측 하단 배치 */}
       <div
         style={{
           position: 'absolute',
-          bottom: '20px', // 하단에 위치
-          right: '20px',  // 오른쪽에 위치
+          bottom: '500px', // 하단에 위치
+
         }}
       >
         <TimerButton onClick={handleNewSession} label="타이머 시작" />
       </div>
+      <Feedback feedbackMessages={["집중 좀 해."]} />
+      
+      
     </div>
   );
 };
