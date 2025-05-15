@@ -10,9 +10,9 @@ const Character = ({ focusLevel }) => {
 
     // focusLevel에 따른 이미지 반환
     if (focusLevel >= 50) {
-      return "/character/good.png"; // good 이미지
+      return "/character/good.jpg"; // good 이미지
     } else {
-      return "/character/bad.png"; // bad 이미지
+      return "/character/bad.jpg"; // bad 이미지
     }
   };
 
@@ -29,5 +29,4 @@ const Character = ({ focusLevel }) => {
     </div>
   );
 };
-
 export default Character;

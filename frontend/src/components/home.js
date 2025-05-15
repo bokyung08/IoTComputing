@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import TimerButton from './components/TimerButton';  // 타이머 버튼 컴포넌트
-import Feedback from './components/FeedBack';      // 피드백 컴포넌트
-import Character from './components/Character';   // 다마고치 캐릭터 컴포넌트
+import React, { use, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import TimerButton from './TimerButton';  // 타이머 버튼 컴포넌트
+import Feedback from './FeedBack';      // 피드백 컴포넌트
+import Character from './Character';   // 다마고치 캐릭터 컴포넌트
 
 const Home = () => {
   const [sessionStarted, setSessionStarted] = useState(false);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   // 새로운 세션을 시작할 때 호출되는 함수
   const handleNewSession = () => {
     setSessionStarted(true);
-    history.push('/timer'); // 타이머 화면으로 이동
+    navigate.push('/timer'); // 타이머 화면으로 이동
   };
 
   return (
