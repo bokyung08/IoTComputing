@@ -127,7 +127,24 @@ const PomodoroTimer = () => {
       </div>
 
       {/* 집중도에 따른 캐릭터 */}
-      <Character focusLevel={focusLevel} />
+      <div
+  style={{
+    display: 'flex',
+    flexDirection: 'row', // 가로 배치
+    alignItems: 'center',  // 세로 가운데 정렬
+    justifyContent: 'center',
+    gap: '20px',           // 캐릭터와 피드백 사이 간격
+    height: '100vh',
+  }}
+>
+  <Character focusLevel={focusLevel} />
+
+  <Feedback
+    feedbackMessages={getFeedbackMessages()}
+    style={{ maxWidth: '400px' }}
+  />
+</div>
+
 
       {/* 웹캠 (타이머 시작 시에만 실행) */}
       {isActive && <MediaPipeCapture onResults={handleResults} />}
@@ -148,9 +165,6 @@ const PomodoroTimer = () => {
       >
         {isActive ? "일시 정지" : "집중 시작"}
       </button>
-
-      {/* 피드백 메시지 */}
-      <Feedback feedbackMessages={getFeedbackMessages()} textAlign="center" />
 
       {/* 현재 상태 표시 */}
       <div style={{ marginTop: 10, fontSize: 20 }}>{state}</div>

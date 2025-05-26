@@ -11,31 +11,59 @@ const MediaPipeCapture = ({ onResults }) => {
 
   useEffect(() => {
     poseRef.current = new Pose({
-      locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/pose/${file}`
+      locateFile: (file) =>
+        `https://cdn.jsdelivr.net/npm/@mediapipe/pose/${file}`,
     });
-    poseRef.current.setOptions({ modelComplexity: 0, smoothLandmarks: true });
-    poseRef.current.onResults(results => onResults(prev => ({ ...prev, pose: results })));
+    poseRef.current.setOptions({
+      modelComplexity: 0,
+      smoothLandmarks: true,
+    });
+    poseRef.current.onResults((results) =>
+      onResults({ pose: results })
+    );
+    
+    
+    
 
     faceMeshRef.current = new FaceMesh({
-      locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/${file}`
+      locateFile: (file) =>
+        `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/${file}`,
     });
-    faceMeshRef.current.setOptions({ maxNumFaces: 1, refineLandmarks: true });
-    faceMeshRef.current.onResults(results => onResults(prev => ({ ...prev, face: results })));
-
+    faceMeshRef.current.setOptions({
+      maxNumFaces: 1,
+      refineLandmarks: true,
+    });
+    faceMeshRef.current.onResults((results) =>
+      onResults({ face: results })
+    );
     cameraRef.current = new cam.Camera(videoRef.current, {
       onFrame: async () => {
         await poseRef.current.send({ image: videoRef.current });
         await faceMeshRef.current.send({ image: videoRef.current });
       },
       width: 640,
-      height: 480
+      height: 480,
     });
+
     cameraRef.current.start();
 
     return () => cameraRef.current?.stop();
   }, [onResults]);
 
-  return <video ref={videoRef} style={{ display: "none" }} autoPlay muted />;
+  return (
+    <video
+      ref={videoRef}
+      style={{
+        display: "block",
+        width: "480px",
+        height: "360px",
+        backgroundColor: "black",
+      }}
+      autoPlay
+      muted
+      playsInline
+    />
+  );
 };
 
 export default MediaPipeCapture;

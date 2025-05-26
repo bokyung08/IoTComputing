@@ -21,7 +21,7 @@ const MessageBox = ({ message, isActive, duration = 3000 }) => {
   return (
     <div
       style={{
-        position: 'fixed',
+        position: 'relative',
         bottom: '20px',
         left: '50%',
         transform: 'translateX(-50%)',

@@ -2,31 +2,31 @@ import React from 'react';
 
 const Feedback = ({ feedbackMessages }) => {
   return (
-    <div
-      style={{
-        position: 'absolute',
-        bottom: '300px',         // 화면 하단 약간 위로 띄우기
-        left: '50%',            // 좌우 중앙 정렬
-        transform: 'translateX(-50%)', // 정확한 가운데 정렬
-        maxWidth: '400px',      // 최대 너비 제한
-        backgroundColor: '#333', // 어두운 배경 (말풍선 느낌)
-        color: 'white',
-        padding: '15px 20px',
-        borderRadius: '20px',
-        boxShadow: '0 4px 10px rgba(0,0,0,0.3)',
-        fontSize: '16px',
-        zIndex: 1000,
-        textAlign: 'center',
-      }}
-    >
-      {feedbackMessages.map((msg, idx) => (
-        <p key={idx} style={{ margin: '5px 0' }}>
-          {msg}
-        </p>
-      ))}
-
-    </div>
-  );
-};
+        <div
+          style={{
+            // position: 'fixed',  // 이 부분 제거 또는 변경
+            // bottom: '50px',
+            // left: '50%',
+            // transform: 'translateX(-50%)',
+            // zIndex: 1000,
+            maxWidth: "400px",
+            backgroundColor: "#333",
+            color: "white",
+            padding: "15px 20px",
+            borderRadius: "20px",
+            boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+            fontSize: "16px",
+            textAlign: "left", // 옆에 뜰 때는 왼쪽 정렬 추천
+          }}
+        >
+          {feedbackMessages.map((msg, idx) => (
+            <p key={idx} style={{ margin: "5px 0" }}>
+              {msg}
+            </p>
+          ))}
+        </div>
+      );
+    };
+    
 
 export default Feedback;

@@ -12,11 +12,11 @@ const ConcentrationDetector = () => {
     const classified = classifyState(features);
     setState(classified);
   }, []);
-
   return (
     <div>
       <MediaPipeCapture onResults={handleResults} />
       <h2>현재 상태: {state}</h2>
+      <p>{getFeedbackMessage(state)}</p>
       <Character focusLevel={state === "집중 상태" ? 80 : 20} />
     </div>
   );
