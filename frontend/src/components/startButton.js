@@ -2,29 +2,7 @@ import React from 'react';
 
 const Button = ({ onNewSession, onResumeSession }) => {
   return (
-    <div
-      style={{
-        position: 'fixed',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        display: 'flex',
-        gap: '40px',
-      }}
-    >
-      <button
-        onClick={onNewSession}
-        style={{
-          padding: '10px 20px',
-          backgroundColor: '#28a745',
-          color: 'white',
-          border: 'none',
-          borderRadius: '5px',
-          cursor: 'pointer',
-        }}
-      >
-        새로 하기
-      </button>
-
+    <div>
       <button
         onClick={onResumeSession}
         style={{
@@ -34,6 +12,10 @@ const Button = ({ onNewSession, onResumeSession }) => {
           border: 'none',
           borderRadius: '5px',
           cursor: 'pointer',
+          position: 'absolute',
+          bottom: '150px',  // 하단에서 150px 위에 위치
+          left: '50%',      // 화면 가로 중앙
+          transform: 'translateX(-50%)', // 정확히 가운데 정렬
         }}
       >
         이어 하기

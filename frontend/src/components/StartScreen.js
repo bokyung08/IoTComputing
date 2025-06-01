@@ -40,7 +40,7 @@ function StartScreen() {
       <Character /> {/* 예시로 focusLevel을 80으로 설정 */}
 
       {/* 버튼을 좌우로 배치 */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', width: '60%', marginTop: '20px' }}>
+      <div>
         <Button onNewSession={handleNewSession} onResumeSession={handleResumeSession} />
       </div>
 

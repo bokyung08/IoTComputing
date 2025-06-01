@@ -4,6 +4,7 @@ import StartScreen from './components/StartScreen';
 import Home from './components/home';
 import PomodoroTimer from './components/Pomodoro';
 import Timer from './components/Timer';
+import Result from './components/Result';
 
 function App() {
   const [sensor, setSensor] = useState({});
@@ -25,6 +26,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/pomodoro" element={<PomodoroTimer />} />
         <Route path="/timer" element={<Timer />} />
+        <Route path="/result" element={<Result sensor={sensor} />} />
       </Routes>
     </Router>
   );

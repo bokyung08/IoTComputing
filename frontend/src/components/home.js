@@ -40,9 +40,10 @@ const Home = () => {
 
         }}
       >
-        <TimerButton onClick={handleNewSession} label="타이머 시작" />
+        
       </div>
-      <Feedback feedbackMessages={["집중 좀 해."]} />
+      <Feedback/>
+      <TimerButton onClick={handleNewSession} label="타이머 시작" />
       
       
     </div>
